@@ -1,0 +1,16 @@
+# Local test only (not used by Railway). Mirrors the template's variables.
+services:
+  chhoto:
+    build: ..
+    environment:
+      PORT: "8080"
+      CHHOTO_PASSWORD: "local-test-password-123"
+      CHHOTO_API_KEY: "${API_KEY}"
+      CHHOTO_SESSION_MASTER_KEY: "${MASTER_KEY}"
+      CHHOTO_SITE_URL: "https://"
+    ports: ["8080:8080"]
+    volumes: ["data:/data"]
+    mem_limit: 512m
+    cpus: 1
+volumes:
+  data:
